@@ -33,9 +33,6 @@ endfunction
 function! leaderf#registers#getreg(line, args) abort
     let args = a:args
     let reg = a:line[0]
-    if reg[0] ==! 'R'
-        call feedkeys('\<C-j>')
-    endif
     if has_key(args, '--visual') || has_key(args, '-V')
         let cmd = 'gv"' . reg
     else
