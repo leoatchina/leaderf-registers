@@ -29,9 +29,9 @@ let g:Lf_Extensions.registers = {
           \ ]
 \ }
 
-command! -bar -nargs=* LeaderfInsert  Leaderf registers
-command! -bar -nargs=* LeaderfInsertV Leaderf registers -V
-command! -bar -nargs=* LeaderfInsertI Leaderf registers -I
+command! -bar -nargs=* LeaderfPaste  Leaderf registers
+command! -bar -nargs=* LeaderfPasteV Leaderf registers -V
+command! -bar -nargs=* LeaderfPasteI Leaderf registers -I
 command! -bar -nargs=* LeaderfAppend  Leaderf registers -A
 command! -bar -nargs=* LeaderfAppendV Leaderf registers -A -V
 command! -bar -nargs=* LeaderfAppendI Leaderf registers -A -I
