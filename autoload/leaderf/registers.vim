@@ -33,29 +33,25 @@ endfunction
 function! leaderf#registers#getreg(line, args) abort
     let args = a:args
     let reg = a:line[0]
-    if has_key(args, '--visual') || has_key(args, '-V')
+    if has_key(args, '-V')
         let cmd = 'gv"' . reg
     else
         let cmd = '"' . reg
     endif
-    if has_key(args, '--insert') || has_key(args, '-I')
-        if has_key(args, '--append') || has_key(args, '-A')
+
+    if has_key(args, '-I')
+        if has_key(args, '-A')
             let cmd = cmd . 'P'
         else
             let cmd = cmd . 'p'
         endif
         let cmd = cmd . 'gi'
     else
-        if has_key(args, '--append') || has_key(args, '-A')
+        if has_key(args, '-A')
             let cmd = cmd . 'p'
         else
             let cmd = cmd . 'P'
         endif
     endif
     call feedkeys(cmd)
-endfunction
-
-function! leaderf#registers#preview(orig_buf_nr, orig_cursor, line, args) abort
-    " TODO preview selected registers
-    " pass
 endfunction
