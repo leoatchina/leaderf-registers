@@ -7,7 +7,7 @@ function! leaderf#registers#source(args) abort
         redir END
         let reg_lst = split(reg, '\n')
     endif
-    if reg_lst[0][0] ==# '"'
+    if reg_lst[0][0] ==# '-'
         let cut_head = 0
     else
         let cut_head = 1
