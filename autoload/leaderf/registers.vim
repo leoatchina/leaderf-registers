@@ -33,25 +33,15 @@ endfunction
 function! leaderf#registers#getreg(line, args) abort
     let args = a:args
     let reg = a:line[0]
-    if has_key(args, '-V')
+    if has_key(args, '--visual')
         let cmd = 'gv"' . reg
     else
         let cmd = '"' . reg
     endif
-
-    if has_key(args, '-I')
-        if has_key(args, '-A')
-            let cmd = cmd . 'P'
-        else
-            let cmd = cmd . 'p'
-        endif
-        let cmd = cmd . 'gi'
+    if has_key(args, '--insert')
+        let cmd = cmd . 'pgi'
     else
-        if has_key(args, '-A')
-            let cmd = cmd . 'p'
-        else
-            let cmd = cmd . 'P'
-        endif
+        let cmd = cmd . 'P'
     endif
     call feedkeys(cmd)
 endfunction
